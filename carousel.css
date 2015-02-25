@@ -1,0 +1,25 @@
+#display_area{
+    width: 800px;
+    height: 600px;
+    background-color: lavender;
+    margin: 0 auto;
+}
+#display_controls{
+    width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+#display_controls >div{
+    width:20%;
+    display: inline-block;
+    position: absolute;
+    background-color: lightyellow;
+}
+#prev_image_control{
+    left: 0px;
+    text-align: left;
+}
+#next_image_control{
+    right: 0px;
+    text-align: right;
+}
