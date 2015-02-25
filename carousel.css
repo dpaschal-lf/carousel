@@ -3,6 +3,13 @@
     height: 600px;
     background-color: lavender;
     margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+#display_area > img{
+    position: absolute;
+    left: 0px;
+    top: 0px;
 }
 #display_controls{
     width: 800px;
