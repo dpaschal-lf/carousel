@@ -17,13 +17,12 @@ function init_images(){
     }
     current_picture = 0;
     $("#next_image_control").click(function(){
-        console.log("going to next image");
         next_image();
     });
     $("#prev_image_control").click(function(){
-        console.log("going to prev image");
         prev_image();
     });
+    console.log(picture_array.length);
     
 }
 function prepare_right()
@@ -50,12 +49,17 @@ function prepare_left()
 function prev_image(){
     //this will shift our images so the previous image is visible
     //move my current picture to the left
-    console.log("in prev image");
+    console.log("current picture = ",$(picture_array[next_picture]).position());
     next_picture = current_picture-1;
-    if(next_picture <=0)
+    if(next_picture<0)
     {
-        prepare_left();
         next_picture=picture_array.length-1;
+    }
+    if($(picture_array[next_picture]).position().left>=0)
+    {
+       console.log("not ready");
+        
+        $(picture_array[next_picture]).css('left','-100%');
     }
     $(picture_array[current_picture]).animate(
     {
@@ -63,7 +67,6 @@ function prev_image(){
     }, 
     transition_speed, 
     function(){
-        console.log("done moving current image");
     });
     //move my next picture onto the stage
     $(picture_array[next_picture]).animate(
@@ -72,7 +75,6 @@ function prev_image(){
     }, 
     transition_speed, 
     function(){
-        console.log("done moving previous image");
     });
     current_picture=next_picture;
 }
@@ -83,8 +85,13 @@ function next_image(){
     next_picture = current_picture+1;
     if(next_picture >= picture_array.length)
     {
-        prepare_right();
         next_picture=0;
+    }
+    if($(picture_array[next_picture]).position().left<=0)
+    {
+       console.log("not ready");
+        
+        $(picture_array[next_picture]).css('left','100%');
     }
     $(picture_array[current_picture]).animate(
     {
