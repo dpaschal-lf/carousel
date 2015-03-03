@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Untitled Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+</head>
+<body>
+    <div id="display_area"></div>
+    <div id="input-fields">
+        <input name="first_name" placeholder="first name"/>
+        <input name="last_name" placeholder="last name"/>
+        <button type="button" onclick="add_student()">Add</button>
+    </div>
+    <script>
+        var $mydiv = $("<div>");
+        var $myspan1 = $("<span/>");
+        var $myspan2 = $("<span/>");
+
+        $mydiv.append($myspan1).append($myspan2);
+        var first_name = $("input[name=first_name]").val();
+        var last_name = $("input[name=last_name]").val();
+        $myspan1.html(first_name);
+        $myspan2.html(last_name);
+        //$myspan1.html($("input[name=first_name]").val());
+        
+        $("#display_area").append($mydiv);
+        
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

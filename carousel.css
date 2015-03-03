@@ -4,7 +4,7 @@
     background-color: lavender;
     margin: 0 auto;
     position: relative;
-    overflow: hidden;
+    aoverflow: hidden;
 }
 #display_area > img{
     position: absolute;
