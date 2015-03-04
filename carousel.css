@@ -20,13 +20,43 @@
     width:20%;
     display: inline-block;
     position: absolute;
-    background-color: lightyellow;
 }
 #prev_image_control{
     left: 0px;
     text-align: left;
+    color: black;
 }
 #next_image_control{
     right: 0px;
     text-align: right;
+    color: black;
 }
+.indicator_dot
+{
+    width: 20px;
+    height: 20px;
+    border: 2px solid blue;
+    display: inline-block;
+    margin: 5px 10px;
+    border-radius: 50%;
+}
+.indicator_dot_active
+{
+    background-color: blue;
+}
+#indicator_container
+{
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+
+
+
+
+
+
+
+
+

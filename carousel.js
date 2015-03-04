@@ -3,13 +3,15 @@ $(document).ready(function(){
     init_images();
 });
 var picture_array = [];  //this will hold all of our pictures in an array
+var indicator_array = [];
 var current_picture = null;  //the index of the picture that is currently visible
 var next_picture = null;
 var transition_speed = 500;
+var indicator_container;
 
 function init_images(){
     //this will set up our image area at startup
-    
+    indicator_container= $("#indicator_container");
     picture_array = $("#display_area > img"); //populate our picture_array with all the images in the display area
     for(var i = 1; i< picture_array.length; i++) //iterate through each EXCEPT the first
     {
@@ -23,6 +25,18 @@ function init_images(){
         prev_image();
     });
     console.log(picture_array.length);
+    
+    //make indicator divs
+    for(var i=0; i< picture_array.length; i++)
+    {
+        var indicator = $("<div>").addClass('indicator_dot');
+        if(i==current_picture)
+        {
+            indicator.addClass('indicator_dot_active');
+        }
+        indicator_array.push(indicator);
+        indicator_container.append(indicator);    
+    }
     
 }
 function prepare_right()
@@ -44,6 +58,11 @@ function prepare_left()
             $(picture_array[i]).css('left','-100%'); //move each item to the LEFT 
         }
     }
+}
+function change_dots()
+{
+    $(".indicator_dot_active").removeClass("indicator_dot_active");
+    $(indicator_array[current_picture]).addClass("indicator_dot_active");
 }
 
 function prev_image(){
@@ -77,6 +96,7 @@ function prev_image(){
     function(){
     });
     current_picture=next_picture;
+    change_dots();
 }
 
 function next_image(){
@@ -111,6 +131,7 @@ function next_image(){
         //alert("it's DONE!");
     });
     current_picture=next_picture;
+    change_dots()
 }
 
 
